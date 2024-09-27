@@ -30,7 +30,7 @@ On line six you should see something like this:
 http://<yourlocalip>:5000
 ```
 
-Open that link in your browser of choice any one on your network will be able to access it as well.
+Open that link in your browser of choice, any one on your network will be able to access it as well.
 
 ![menuimage](https://i.imgur.com/6f7G85H.png)
 
