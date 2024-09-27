@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded shadow-md">
+    <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+
+    <h3 class="font-semibold">Stored Passwords:</h3>
+    <table class="min-w-full border-collapse border border-gray-300 mb-4">
+        <thead>
+            <tr>
+                <th class="border border-gray-300 px-4 py-2">Owner</th>
+                <th class="border border-gray-300 px-4 py-2">Site</th>
+                <th class="border border-gray-300 px-4 py-2">Password</th>
+                <th class="border border-gray-300 px-4 py-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in passwords %}
+            <tr>
+                <td class="border border-gray-300 px-4 py-2">
+                    {{ entry.owner }}
+                </td>
+                <td class="border border-gray-300 px-4 py-2">
+                    {{ entry.site }}
+                </td>
+                <td class="border border-gray-300 px-4 py-2">
+                    {{ entry.password }}
+                </td>
+                <td class="border border-gray-300 px-4 py-2">
+                    <a
+                        href="{{ url_for('remove_password', index=loop.index0) }}"
+                        class="text-red-500"
+                        >Remove</a
+                    >
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 class="font-semibold">Add New Password:</h3>
+    <form method="POST" action="{{ url_for('add_password') }}">
+        <input
+            type="text"
+            name="owner"
+            placeholder="Owner"
+            required
+            class="border border-gray-300 p-2 w-full mb-4 rounded"
+        />
+        <input
+            type="text"
+            name="site"
+            placeholder="Site"
+            required
+            class="border border-gray-300 p-2 w-full mb-4 rounded"
+        />
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            class="border border-gray-300 p-2 w-full mb-4 rounded"
+        />
+        <button
+            type="submit"
+            class="bg-green-500 text-white p-2 rounded w-full"
+        >
+            Add Password
+        </button>
+    </form>
+</div>
+{% endblock %}
