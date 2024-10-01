@@ -1,6 +1,9 @@
 # MyPass
 A open source self-hosted password manager built with Python.
 
+## Warning
+**This application is not very secure and is intended for educational purposes only. Use it at your own risk.**
+
 ## Setup
 
 ### Requirements:
